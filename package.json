@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
-    "lint": "echo 'no lint configured'"
+    "lint": "echo 'no lint configured'",
+    "typecheck": "tsc --noEmit",
+    "build-gh-pages": "tsc && vite build --base=/pneuma/"
   },
   "dependencies": {
     "react": "^18.3.1",
