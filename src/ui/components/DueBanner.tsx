@@ -1,6 +1,5 @@
 import React from 'react';
 import { Reminder, Routine } from '../../types';
-import { Button } from './Button';
 
 interface DueBannerProps {
   reminder: Reminder;
@@ -11,20 +10,31 @@ interface DueBannerProps {
 }
 
 export const DueBanner: React.FC<DueBannerProps> = ({ reminder, routine, onStart, onSnooze, onDismiss }) => (
-  <div className="banner">
+  <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
     <div>
-      <p className="banner-title">Reminder due</p>
-      <p className="banner-body">{routine?.name ?? 'Routine'} is ready to start now.</p>
-      <p className="banner-sub">Time: {reminder.timeOfDay}</p>
+      <p className="text-primary font-bold text-sm uppercase tracking-wider mb-1">Reminder due</p>
+      <h3 className="text-[#112116] dark:text-white font-bold text-lg">{routine?.name ?? 'Routine'} is ready</h3>
+      <p className="text-[#4b6354] dark:text-[#93c8a5] text-sm">Scheduled for {reminder.timeOfDay}</p>
     </div>
-    <div className="banner-actions">
-      <Button onClick={onStart}>Start</Button>
-      <Button variant="secondary" onClick={onSnooze}>
+    <div className="flex flex-wrap gap-2">
+      <button
+        onClick={onStart}
+        className="bg-primary text-[#112217] px-4 py-2 rounded-lg text-sm font-bold hover:bg-[#16cc52] transition-colors"
+      >
+        Start
+      </button>
+      <button
+        onClick={onSnooze}
+        className="bg-gray-200 dark:bg-[#244730] text-[#112116] dark:text-white px-4 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity"
+      >
         Snooze 10m
-      </Button>
-      <Button variant="ghost" onClick={onDismiss}>
+      </button>
+      <button
+        onClick={onDismiss}
+        className="text-[#4b6354] dark:text-[#93c8a5] px-4 py-2 rounded-lg text-sm font-medium hover:underline transition-all"
+      >
         Dismiss
-      </Button>
+      </button>
     </div>
   </div>
 );

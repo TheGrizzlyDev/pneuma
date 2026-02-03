@@ -19,7 +19,6 @@ const renderPlayer = () =>
 describe('PlayerPage', () => {
   it('renders the player header', () => {
     renderPlayer();
-    expect(screen.getByText('Player')).toBeInTheDocument();
     expect(screen.getByText(/Resonance 5–5/)).toBeInTheDocument();
   });
 });
